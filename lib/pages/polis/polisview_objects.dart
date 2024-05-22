@@ -42,7 +42,7 @@ class PolistViewObjectsPage extends StatelessWidget {
                           "Object #${index + 1}",
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                              color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),

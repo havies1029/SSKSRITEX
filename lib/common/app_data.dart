@@ -8,7 +8,7 @@ class AppData {
   static int chatRefresh = 10;
   static bool kIsWeb = false;
   static User user = User();
-  static bool useSSL = true;
+  static bool useSSL = false;
   static var uriHtpp = useSSL ? Uri.https : Uri.http;
 
 /*

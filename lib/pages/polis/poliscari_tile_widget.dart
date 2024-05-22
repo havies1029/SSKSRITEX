@@ -127,7 +127,6 @@ class PolisCariTileWidget extends StatelessWidget {
                       child: const Icon(
                         Icons.keyboard_double_arrow_right_rounded,
                         size: 50.0,
-                        color: Colors.black,
                       ),
                     ),
                   )

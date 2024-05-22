@@ -42,14 +42,13 @@ class PolisViewDnCNPage extends StatelessWidget {
               child: Text(
                 value,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
           ),
         ),
         indexedItemBuilder: (c, element, index) {
           return Card(
-              color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
