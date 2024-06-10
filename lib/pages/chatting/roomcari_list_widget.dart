@@ -62,7 +62,7 @@ class RoomCariListWidgetState extends State<RoomCariListWidget> {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           decoration: const BoxDecoration(
-                            color: Colors.yellow,
+                            color: Colors.black,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(8.0)),
                           ),
@@ -72,7 +72,7 @@ class RoomCariListWidgetState extends State<RoomCariListWidget> {
                               value,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                  color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),

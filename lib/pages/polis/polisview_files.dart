@@ -85,6 +85,7 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                                 child: const Icon(
                                   Icons.share,
                                   size: 25,
+                                  color: Colors.black,
                                 ),
                               ),
                               GestureDetector(
@@ -95,6 +96,7 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                                 child: const Icon(
                                   Icons.open_in_new,
                                   size: 25,
+                                  color: Colors.black,
                                 ),
                               ),
                               GestureDetector(
@@ -129,7 +131,7 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                                           debugPrint('DOWNLOAD ERROR: $error');
                                         });
                                   },
-                                  child: const Icon(Icons.download, size: 25)),
+                                  child: const Icon(Icons.download, size: 25, color: Colors.black)),
                             ],
                           )
                         ],

@@ -33,16 +33,16 @@ class PolisViewSecurityListPage extends StatelessWidget {
   WTR buildWTRHeader(String curr) {
     WTD col1 = const WTD(
         child: Text("Insurer",
-            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+            style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold)),
         flex: 7);
     WTD col2 = const WTD(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text("Share",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold)),
             Text("(%)",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+                style: TextStyle(color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold)),
           ],
         ),
         flex: 4);
@@ -56,12 +56,12 @@ class PolisViewSecurityListPage extends StatelessWidget {
     String rekanNama = item.rekanNama;
     double sharePersen = item.sharePersen;
 
-    WTD wtd1 = WTD(child: Text(rekanNama), flex: 7);
+    WTD wtd1 = WTD(flex: 7, child: Text(rekanNama, style: const TextStyle(color: Colors.black,))) ;
     WTD wtd2 = WTD(
         child: Row(
           children: [
             const Spacer(),
-            Text(NumberFormat("##0.00").format(sharePersen)),
+            Text(NumberFormat("##0.00").format(sharePersen), style: const TextStyle(color: Colors.black,)),
           ],
         ),
         flex: 4);
