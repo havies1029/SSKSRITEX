@@ -8,14 +8,15 @@ import 'package:intl/intl.dart';
 class PolisViewDnCNPage extends StatelessWidget {
   final String polis1Id;
   final String curr;
-  final List<DnCnModel>? listDnCn;
+  final List<DnCnModel>? listDnCn;  
 
   const PolisViewDnCNPage(
       {super.key, required this.curr, required this.polis1Id, this.listDnCn});
 
   @override
-  Widget build(BuildContext context) {
-    var elements = listDnCn!.map((e) => e.toJson()).toList();
+  Widget build(BuildContext context) {    
+    var elements = listDnCn!.map((e) => e.toJson()).toList();    
+    ScrollController scrollController = ScrollController();
 
     return Container(
       color: Colors.grey[200],
@@ -29,6 +30,7 @@ class PolisViewDnCNPage extends StatelessWidget {
         useStickyGroupSeparators: true,        
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
+        controller: scrollController,
         groupSeparatorBuilder: (String value) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(     

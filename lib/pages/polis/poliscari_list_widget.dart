@@ -12,8 +12,8 @@ class PolisCariListWidget extends StatefulWidget {
 	PolisCariListWidgetState createState() => PolisCariListWidgetState();
 }
 
-class PolisCariListWidgetState extends State<PolisCariListWidget> {
-
+class PolisCariListWidgetState extends State<PolisCariListWidget> {  
+  ScrollController scrollController = ScrollController();
 	List<PolisCariModel> polisCari = [];
   
 	@override
@@ -36,6 +36,7 @@ class PolisCariListWidgetState extends State<PolisCariListWidget> {
             padding: EdgeInsets.zero,
             //getTransformMatrix: TransformMatrices.rotate,
             itemCount: state.items.length,
+            controller: scrollController,
             itemBuilder: (context, index) =>
 
               Container(

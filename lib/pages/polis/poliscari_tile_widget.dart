@@ -116,8 +116,11 @@ class PolisCariTileWidget extends StatelessWidget {
                           MaterialPageRoute(builder: (context) {
                             //return const AccordionPage();
                             return PolisViewMainPage(polis1Id: polis1Id);
-                          }),
-                        );
+                          }
+                          ),
+                        ).then((data){
+                          //micky
+                        });
 
                         /*
                         BlocProvider.of<HomeBloc>(context)

@@ -26,12 +26,15 @@ class PolisViewFilesPage extends StatefulWidget {
 }
 
 class PolisViewFilesPageState extends State<PolisViewFilesPage> {
+  final ScrollController _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     var progressIndicatorBloc = BlocProvider.of<ProgressIndicatorBloc>(context);
 
     return ListView.builder(        
         scrollDirection: Axis.vertical,
+        controller: _scrollController,
         shrinkWrap: true,
         itemCount: widget.listDocs.length,
         itemBuilder: ((context, index) {

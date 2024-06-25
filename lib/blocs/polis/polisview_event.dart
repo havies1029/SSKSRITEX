@@ -16,3 +16,4 @@ class GetPolisViewEvent extends PolisViewEvents {
 	List<Object> get props => [polis1Id];
 }
 
+class ResetStatePolisViewEvent extends PolisViewEvents {}
