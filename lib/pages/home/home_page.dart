@@ -68,7 +68,10 @@ class _HomePageState extends State<HomePage> {
           } else if (state is DnCnCariPageActive) {
             debugPrint("DnCnCariPageActive");
 
-            return const PageContainer(pageType: PageType.soaclient);
+            return const PageContainer(pageType: PageType.soaclient);            
+          } else if (state is ChangePasswordPageActive) {
+            debugPrint("ChangePasswordPageActive");
+            return const PageContainer(pageType: PageType.changepswd);              
           } else if (state is ProfilePageActive) {
             return PageContainerWithUserRepository(
               pageType: PageType.profile,

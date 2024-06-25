@@ -42,6 +42,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
     on<DnCnCariPageActiveEvent>(
       (event, emit) => emit(DnCnCariPageActive())
-    );
+    );    
+    on<ChangePasswordPageActiveEvent>((event, emit) => emit(ChangePasswordPageActive())); 
   }
 }

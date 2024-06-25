@@ -8,15 +8,17 @@ class AppData {
   static int chatRefresh = 10;
   static bool kIsWeb = false;
   static User user = User();
-  static bool useSSL = true;
   static var uriHtpp = useSSL ? Uri.https : Uri.http;
 
 
+  static bool useSSL = false;
   static String apiDomain = "http://10.0.2.2/JPSAgencyAPI/";
   static String prefixEndPoint = "/JPSAgencyAPI";
   static String httpAuthority = "10.0.2.2";
 
 /*
+
+  static bool useSSL = true;
   static String apiDomain =
       "http${useSSL ? "s" : ""}://jpsagencyapi.smartsoft-id.com/";
   static String prefixEndPoint = "";

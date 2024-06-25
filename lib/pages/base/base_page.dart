@@ -18,7 +18,8 @@ enum PageType {
   listclaim,
   claimchat,
   soaclient,
-  roomchat
+  roomchat,
+  changepswd,
 }
 
 abstract class PageContainerBase extends StatelessWidget {

@@ -92,7 +92,18 @@ class AppMenuState extends State<AppMenu> with RouteAware {
                 homeBloc.add(RoomCariPageActiveEvent());
               });
             },
-          ),                       
+          ), 
+          ListTile(
+            leading: const Icon(Icons.security),
+            title: const Text("Change Password"),
+            //selected: _activeRoute == AppRoutes.homePage,
+            onTap: () {
+              SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+                Navigator.of(context).pop();
+                homeBloc.add(ChangePasswordPageActiveEvent());
+              });
+            },
+          ),                           
           const AboutListTile(
             icon: Icon(Icons.info),
             applicationName: "JPS SuperApp",

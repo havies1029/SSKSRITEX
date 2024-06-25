@@ -56,3 +56,4 @@ class ClaimSupportPageActiveEvent extends HomeEvent {}
 class ListClaimPageActiveEvent extends HomeEvent {}
 
 class DnCnCariPageActiveEvent extends HomeEvent {}
+class ChangePasswordPageActiveEvent extends HomeEvent {}
