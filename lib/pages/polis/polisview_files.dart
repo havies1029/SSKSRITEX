@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:ecargo_app/blocs/progressindicator/progressindicator_bloc.dart';
 import 'package:ecargo_app/common/app_data.dart';
+import 'package:ecargo_app/helper/file_manager/file_manager.dart';
 import 'package:ecargo_app/models/polis/polis4crud_model.dart';
 import 'package:ecargo_app/models/polis/polis4doc_model.dart';
 import 'package:ecargo_app/repositories/polis/polisview_repository.dart';
@@ -27,12 +27,15 @@ class PolisViewFilesPage extends StatefulWidget {
 
 class PolisViewFilesPageState extends State<PolisViewFilesPage> {
   final ScrollController _scrollController = ScrollController();
+  final fileManager = FileManager();
+  final String base = AppData.apiDomain;
+  late ProgressIndicatorBloc progressIndicatorBloc;
 
   @override
   Widget build(BuildContext context) {
-    var progressIndicatorBloc = BlocProvider.of<ProgressIndicatorBloc>(context);
+    progressIndicatorBloc = BlocProvider.of<ProgressIndicatorBloc>(context);
 
-    return ListView.builder(        
+    return ListView.builder(
         scrollDirection: Axis.vertical,
         controller: _scrollController,
         shrinkWrap: true,
@@ -77,7 +80,7 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              GestureDetector(
+                              AppData.kIsWeb?Container(): GestureDetector(
                                 onTap: () async {
                                   ShareIt.file(
                                       path: await filePolisFromUrl(
@@ -91,10 +94,13 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                                   color: Colors.black,
                                 ),
                               ),
-                              GestureDetector(
+                              AppData.kIsWeb ? Container(): GestureDetector(
                                 onTap: () async {
-                                  OpenFilex.open(await filePolisFromUrl(
-                                      polis4id: widget.listDocs[index].polis4Id));
+                                 
+                                      notifyFileDownloadProgress(context);
+                                      OpenFilex.open(await filePolisFromUrl(
+                                          polis4id:
+                                              widget.listDocs[index].polis4Id));                                              
                                 },
                                 child: const Icon(
                                   Icons.open_in_new,
@@ -103,38 +109,52 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
                                 ),
                               ),
                               GestureDetector(
-                                  onTap: () async {
-                                    final String base = AppData.apiDomain;
-                                    String urlGetPolisFileEndPoint =
-                                        "api/polis/polisview/getfile/${widget.listDocs[index].polis4Id}";
-                                    String urlGetPolisFileUrl =
-                                        base + urlGetPolisFileEndPoint;
-            
-                                    notifyFileDownloadProgress(context);
-            
-                                    await FileDownloader.downloadFile(
-                                        url: urlGetPolisFileUrl,
-                                        onProgress: (fileName, progress) {
-                                          debugPrint("Progress : $progress");
-                                          progressIndicatorBloc.add(
-                                              UpdateProgressEvent(
-                                                  progress: (progress / 100)));
-                                        },
-                                        headers: AppData.httpHeaders,
-                                        name: widget.listDocs[index].filename,
-                                        onDownloadCompleted: (String path) {
-                                          debugPrint(
-                                              'FILE DOWNLOADED TO PATH: $path');
-            
-                                          progressIndicatorBloc.add(EndProcessEvent(
-                                              progressName:
-                                                  "file name: ${widget.listDocs[index].filename}"));
-                                        },
-                                        onDownloadError: (String error) {
-                                          debugPrint('DOWNLOAD ERROR: $error');
-                                        });
-                                  },
-                                  child: const Icon(Icons.download, size: 25, color: Colors.black)),
+                                onTap: () async {
+                                  //debugPrint("download #10");
+                                  notifyFileDownloadProgress(context);
+                                  //debugPrint("download #20");
+                                  String urlGetPolisFileEndPoint =
+                                      "api/polis/polisview/getfile/${widget.listDocs[index].polis4Id}";
+                                  //debugPrint("download #30");
+                                  String urlGetPolisFileUrl =
+                                      base + urlGetPolisFileEndPoint;
+                                  //debugPrint("download #40");
+                                  AppData.kIsWeb
+                                      ? await downloadFromWeb(
+                                          urlGetPolisFileEndPoint, index)
+                                      /*
+                                        await fileManager.downloadFile(
+                                          urlGetPolisFileEndPoint,
+                                          widget.listDocs[index].filename)
+                                          */
+                                      : await FileDownloader.downloadFile(
+                                          url: urlGetPolisFileUrl,
+                                          onProgress: (fileName, progress) {
+                                            debugPrint("Progress : $progress");
+                                            progressIndicatorBloc.add(
+                                                UpdateProgressEvent(
+                                                    progress:
+                                                        (progress / 100)));
+                                          },
+                                          headers: AppData.httpHeaders,
+                                          name: widget.listDocs[index].filename,
+                                          onDownloadCompleted: (String path) {
+                                            debugPrint(
+                                                'FILE DOWNLOADED TO PATH: $path');
+
+                                            progressIndicatorBloc.add(
+                                                EndProcessEvent(
+                                                    progressName:
+                                                        "file name: ${widget.listDocs[index].filename}"));
+                                          },
+                                          onDownloadError: (String error) {
+                                            debugPrint(
+                                                'DOWNLOAD ERROR: $error');
+                                          });
+                                },
+                                child: const Icon(Icons.download,
+                                    size: 25, color: Colors.black),
+                              )
                             ],
                           )
                         ],
@@ -145,16 +165,20 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
               ),
             ),
           );
-        }
-      )
-    );
+        }));
   }
 
   Future<String> filePolisFromUrl({required String polis4id}) async {
     debugPrint("filePolisFromUrl");
 
+    progressIndicatorBloc.add(const UpdateProgressEvent(progress:(0 / 100)));
+
+    String url = "";
+
     PolisViewRepository repo = PolisViewRepository();
     final Polis4DocModel polisdoc = await repo.getPolisDoc(polis4id);
+
+    progressIndicatorBloc.add(const UpdateProgressEvent(progress:(70 / 100)));
 
     final directory = Platform.isIOS
         ? await getApplicationDocumentsDirectory()
@@ -166,8 +190,12 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
 
     final file = await File(filePath).writeAsBytes(polisdoc.datafile);
     debugPrint("file.path : ${file.path}");
+    url = file.path;
 
-    return file.path;
+    progressIndicatorBloc.add(const UpdateProgressEvent(progress:(100 / 100)));
+
+    debugPrint("url : $url");
+    return url;
   }
 
   void notifyFileDownloadProgress(BuildContext context) {
@@ -184,4 +212,13 @@ class PolisViewFilesPageState extends State<PolisViewFilesPage> {
               ),
             ));
   }
+
+  Future<void> downloadFromWeb(
+      String urlGetPolisFileEndPoint, int index) async {
+    await fileManager.downloadFile(
+        urlGetPolisFileEndPoint, widget.listDocs[index].filename);
+
+    progressIndicatorBloc.add(const UpdateProgressEvent(progress: 1));
+  }
+
 }
