@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 class MyText{
 
   static TextStyle? display4(BuildContext context){
-    return Theme.of(context).textTheme.headline1;
+    return Theme.of(context).textTheme.displayLarge;
   }
 
   static TextStyle? display3(BuildContext context){
-    return Theme.of(context).textTheme.headline2;
+    return Theme.of(context).textTheme.displayMedium;
   }
 
   static TextStyle? display2(BuildContext context){
-    return Theme.of(context).textTheme.headline3;
+    return Theme.of(context).textTheme.displaySmall;
   }
 
   static TextStyle? display1(BuildContext context){
-    return Theme.of(context).textTheme.headline4;
+    return Theme.of(context).textTheme.headlineMedium;
   }
 
   static TextStyle contentStyle(){
@@ -59,20 +59,20 @@ class MyText{
   }
 
   static TextStyle? caption(BuildContext context){
-    return Theme.of(context).textTheme.caption;
+    return Theme.of(context).textTheme.bodySmall;
   }
 
   static TextStyle? button(BuildContext context){
-    return Theme.of(context).textTheme.button!.copyWith(
+    return Theme.of(context).textTheme.labelLarge!.copyWith(
         letterSpacing: 1
     );
   }
 
   static TextStyle? subtitle(BuildContext context){
-    return Theme.of(context).textTheme.subtitle2;
+    return Theme.of(context).textTheme.titleSmall;
   }
 
   static TextStyle? overline(BuildContext context){
-    return Theme.of(context).textTheme.overline;
+    return Theme.of(context).textTheme.labelSmall;
   }
 }

@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.3  
-  flutter_bloc: ^8.0.0
+  flutter_bloc: ^9.1.0
   meta: ^1.10.0
   equatable: ^2.0.3
   uuid: ^4.3.3
@@ -43,31 +43,31 @@ dependencies:
   flutter_svg: ^2.0.0+1
   image_picker: ^1.0.7
   dio: ^5.4.0
-  intl: ^0.18.1
-  flutter_launcher_icons: ^0.13.1
-  flutter_form_builder: ^9.2.1
-  form_builder_validators: ^9.1.0
-  dropdown_search: ^5.0.6
-  reactive_forms: ^16.1.1
-  reactive_dropdown_search: ^3.0.0
+  intl: ^0.19.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_form_builder: ^10.0.1
+  form_builder_validators: ^11.1.2
+  dropdown_search: ^6.0.2
+  reactive_forms: ^17.0.1
+  reactive_dropdown_search: ^5.0.6
   checkbox_grouped: ^2.0.0
-  form_builder_extra_fields: ^10.1.0
+  form_builder_extra_fields: ^12.0.0
   accordion: ^2.6.0
-  expansion_tile_group: ^1.2.4
+  expansion_tile_group: ^2.2.0
   expansion_tile_card: ^3.0.0
   cool_table: ^1.0.0
   freedom_table: ^0.3.6+3
-  transformable_list_view: ^0.5.0
-  flex_color_scheme: ^7.3.1
+  transformable_list_view: ^0.7.0
+  flex_color_scheme: ^8.2.0
   data_table_2: ^2.5.11
-  grouped_list: ^5.1.2
+  grouped_list: ^6.0.0
   flutter_chat_ui: ^1.6.12
-  file_picker: ^8.0.0+1
-  mime: ^1.0.5
+  file_picker: ^10.1.2
+  mime: ^2.0.0
   open_filex: ^4.4.0
   flutter_chat_types: ^3.6.2
   share_it: ^0.7.0
-  flutter_file_downloader: ^1.2.1
+  flutter_file_downloader: ^2.1.0
   percent_indicator: ^4.0.1
   connectivity_plus: ^6.0.2
   const_date_time: ^1.1.0
@@ -78,7 +78,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.1
+  flutter_lints: ^5.0.0
   google_fonts: ^6.1.0
 
 # For information on the generic Dart part of this file, see the

@@ -15,77 +15,77 @@ class CoustomTheme {
 
   static TextTheme _buildTextTheme(TextTheme base) {
     return base.copyWith(
-      headline6: GoogleFonts.ubuntu(
+      titleLarge: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.headline6!.color,
+          color: base.titleLarge!.color,
           fontSize: 20,
           fontWeight: FontWeight.w500,
         ),
       ),
-      subtitle1: GoogleFonts.ubuntu(
+      titleMedium: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.subtitle1!.color,
+          color: base.titleMedium!.color,
           fontSize: 16,
         ),
       ),
-      subtitle2: GoogleFonts.ubuntu(
+      titleSmall: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.subtitle2!.color,
+          color: base.titleSmall!.color,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
       ),
-      bodyText2: GoogleFonts.ubuntu(
+      bodyMedium: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.bodyText2!.color,
+          color: base.bodyMedium!.color,
           fontSize: 16,
         ),
       ),
-      bodyText1: GoogleFonts.ubuntu(
+      bodyLarge: GoogleFonts.ubuntu(
         textStyle: TextStyle(
           fontSize: 14,
           color: HexColor("#112950"),
         ),
       ),
-      button: GoogleFonts.ubuntu(
+      labelLarge: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-            color: base.button!.color,
+            color: base.labelLarge!.color,
             fontSize: 14,
             fontWeight: FontWeight.w600),
       ),
-      caption: GoogleFonts.ubuntu(
-        textStyle: TextStyle(color: base.caption!.color, fontSize: 12),
+      bodySmall: GoogleFonts.ubuntu(
+        textStyle: TextStyle(color: base.bodySmall!.color, fontSize: 12),
       ),
-      headline4: GoogleFonts.ubuntu(
-        textStyle: TextStyle(color: base.headline4!.color, fontSize: 34),
+      headlineMedium: GoogleFonts.ubuntu(
+        textStyle: TextStyle(color: base.headlineMedium!.color, fontSize: 34),
       ),
-      headline3: GoogleFonts.ubuntu(
+      displaySmall: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.headline3!.color,
+          color: base.displaySmall!.color,
           fontSize: 16,
         ),
       ),
-      headline2: GoogleFonts.ubuntu(
+      displayMedium: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.headline2!.color,
+          color: base.displayMedium!.color,
           fontSize: 60,
         ),
       ),
-      headline1: GoogleFonts.ubuntu(
+      displayLarge: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.headline1!.color,
+          color: base.displayLarge!.color,
           fontSize: 96,
         ),
       ),
-      headline5: GoogleFonts.ubuntu(
+      headlineSmall: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.headline5!.color,
+          color: base.headlineSmall!.color,
           fontSize: 24,
         ),
       ),
-      overline: GoogleFonts.ubuntu(
+      labelSmall: GoogleFonts.ubuntu(
         textStyle: TextStyle(
-          color: base.overline!.color,
+          color: base.labelSmall!.color,
           fontSize: 10,
         ),
       ),
@@ -104,7 +104,6 @@ class CoustomTheme {
     return base.copyWith(
       appBarTheme: const AppBarTheme(color: Colors.white),
       popupMenuTheme: const PopupMenuThemeData(color: Colors.white),
-      colorScheme: colorScheme,
       primaryColor: primaryColor,
       splashColor: Colors.white.withOpacity(0.1),
       hoverColor: Colors.transparent,
@@ -112,8 +111,7 @@ class CoustomTheme {
       highlightColor: Colors.transparent,
       canvasColor: Colors.white,
       scaffoldBackgroundColor: HexColor("#0065FF"),
-      backgroundColor: Colors.white,
-      errorColor: Colors.red,
+      cardColor: Colors.red,
       textTheme: _buildTextTheme(base.textTheme),
       primaryTextTheme: _buildTextTheme(base.textTheme),
       platform: TargetPlatform.iOS,
@@ -121,7 +119,7 @@ class CoustomTheme {
       disabledColor: HexColor("#D5D7D8"),
       dividerColor: Colors.black.withOpacity(0.8),
       bottomSheetTheme:
-          BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
+          BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)), colorScheme: colorScheme.copyWith(background: Colors.white),
     );
   }
 
@@ -138,13 +136,11 @@ class CoustomTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
       ),
-      colorScheme: colorScheme,
       primaryColor: primaryColor,
       indicatorColor: Colors.white,
       splashColor: Colors.white24,
       splashFactory: InkRipple.splashFactory,
       canvasColor: Colors.white,
-      backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
       buttonTheme: ButtonThemeData(
         colorScheme: colorScheme,
@@ -166,7 +162,7 @@ class CoustomTheme {
             color: Colors.white,
             fontSize: 10,
           ),
-          backgroundColor: Colors.black),
+          backgroundColor: Colors.black), colorScheme: colorScheme.copyWith(background: Colors.black),
     );
   }
 
