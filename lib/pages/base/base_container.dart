@@ -5,6 +5,7 @@ import 'package:ecargo_app/pages/home/home_page.dart';
 import 'package:ecargo_app/menu/app_menu_drawer.dart';
 import 'package:ecargo_app/pages/base/base_page.dart';
 import 'package:ecargo_app/common/styles.dart';
+import 'package:ecargo_app/pages/login/change_pswd_main.dart';
 import 'package:ecargo_app/pages/polis/poliscari_main.dart';
 import 'package:ecargo_app/pages/polis/polisview_main.dart';
 import 'package:ecargo_app/pages/soaclient/dncncari_list.dart';
@@ -101,6 +102,8 @@ class PageContainer extends PageContainerBase {
         return "List Claim";
       case PageType.roomchat:
         return "Chat Support";
+      case PageType.changepswd:
+        return "Change Password";
       case PageType.soaclient:
         return "SOA Client";
       default:
@@ -130,6 +133,9 @@ class PageContainer extends PageContainerBase {
         break;
       case PageType.soaclient:
         page = const DncnCariPage();
+        break;
+      case PageType.changepswd:
+        page = const ChangePswdMainPage();
         break;
       default:
         page = null;

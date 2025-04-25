@@ -52,3 +52,4 @@ class ListMemberPageActive extends HomeState {}
 class ListClaimPageActive extends HomeState {}
 
 class DnCnCariPageActive extends HomeState {}
+class ChangePasswordPageActive extends HomeState {}

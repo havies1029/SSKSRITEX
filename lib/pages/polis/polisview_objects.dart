@@ -13,10 +13,13 @@ class PolistViewObjectsPage extends StatelessWidget {
       {super.key, required this.curr, required this.listObj});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {        
+    ScrollController scrollController = ScrollController();
+
     return Container(
       color: Colors.grey[200],
       child: ListView.builder(
+          controller: scrollController,
           physics: const ClampingScrollPhysics(),
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
@@ -42,7 +45,7 @@ class PolistViewObjectsPage extends StatelessWidget {
                           "Object #${index + 1}",
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),

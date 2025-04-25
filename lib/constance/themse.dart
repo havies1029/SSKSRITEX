@@ -111,7 +111,10 @@ class CoustomTheme {
       highlightColor: Colors.transparent,
       canvasColor: Colors.white,
       scaffoldBackgroundColor: HexColor("#0065FF"),
+<<<<<<< HEAD
       cardColor: Colors.red,
+=======
+>>>>>>> 34b56aa5d800e65b2a1542ce463521b0ea3b46b2
       textTheme: _buildTextTheme(base.textTheme),
       primaryTextTheme: _buildTextTheme(base.textTheme),
       platform: TargetPlatform.iOS,
@@ -119,7 +122,11 @@ class CoustomTheme {
       disabledColor: HexColor("#D5D7D8"),
       dividerColor: Colors.black.withOpacity(0.8),
       bottomSheetTheme:
+<<<<<<< HEAD
           BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)), colorScheme: colorScheme.copyWith(background: Colors.white),
+=======
+          BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)), colorScheme: colorScheme.copyWith(background: Colors.white).copyWith(error: Colors.red),
+>>>>>>> 34b56aa5d800e65b2a1542ce463521b0ea3b46b2
     );
   }
 

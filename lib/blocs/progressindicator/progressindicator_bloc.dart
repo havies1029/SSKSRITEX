@@ -22,6 +22,6 @@ class ProgressIndicatorBloc
 
     bool downloading = event.progress < 1;
 
-    emit(state.copyWith(downloading: downloading, progressPercent: event.progress));
+    emit(state.copyWith(downloading: downloading, downloaded: !downloading, progressPercent: event.progress));
   }
 }

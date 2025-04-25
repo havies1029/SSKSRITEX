@@ -116,8 +116,11 @@ class PolisCariTileWidget extends StatelessWidget {
                           MaterialPageRoute(builder: (context) {
                             //return const AccordionPage();
                             return PolisViewMainPage(polis1Id: polis1Id);
-                          }),
-                        );
+                          }
+                          ),
+                        ).then((data){
+                          //micky
+                        });
 
                         /*
                         BlocProvider.of<HomeBloc>(context)
@@ -127,6 +130,7 @@ class PolisCariTileWidget extends StatelessWidget {
                       child: const Icon(
                         Icons.keyboard_double_arrow_right_rounded,
                         size: 50.0,
+                        color: Colors.black,
                       ),
                     ),
                   )

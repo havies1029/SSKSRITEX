@@ -11,12 +11,15 @@ class PolisViewEndorsChangesWidget extends StatelessWidget {
   const PolisViewEndorsChangesWidget({super.key, required this.listChanges});
 
   @override
-  Widget build(BuildContext context) {
-    return buildListChanges(listChanges);
+  Widget build(BuildContext context) {              
+    return buildListChanges(listChanges); 
   }
 
-  TransformableListView buildListChanges(List<Endors99CrudModel> listItem) {
+  TransformableListView buildListChanges(List<Endors99CrudModel> listItem) {      
+    ScrollController scrollController = ScrollController();
+
     return TransformableListView.builder(
+        controller: scrollController,
         padding: EdgeInsets.zero,
         getTransformMatrix: TransformMatrices.rotate,
         itemCount: listItem.length,

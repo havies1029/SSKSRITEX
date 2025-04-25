@@ -18,7 +18,8 @@ enum PageType {
   listclaim,
   claimchat,
   soaclient,
-  roomchat
+  roomchat,
+  changepswd,
 }
 
 abstract class PageContainerBase extends StatelessWidget {
@@ -103,7 +104,7 @@ abstract class PageContainerBase extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
           ),
           background,
           WillPopScope(
